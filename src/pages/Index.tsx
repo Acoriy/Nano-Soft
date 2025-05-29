@@ -111,85 +111,92 @@ const Index = () => {
         keywords="حلول تكنولوجيا الشركات , أنظمة إدارة الأعمال الذكية , منصة أعمال رقمية متكاملة , "
         url="https://nanosoft.ly"
       />
-      
+
       <SchemaMarkup schema={homepageSchema} />
 
       {/* Section Hero */}
-      <section className="relative min-h-screen flex items-center bg-hero-pattern bg-cover bg-center pt-20 md:pt-16">
+      <section className="relative min-h-[70vh] md:min-h-screen flex items-center bg-hero-pattern bg-cover bg-center pt-24 md:pt-20">
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-radial from-transparent to-white/70 dark:to-gray-900/30"></div>
-        <div className="container mx-auto px-4 z-10 py-12 md:py-20 w-auto h-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+        <div className="absolute inset-0 bg-gradient-radial from-transparent  to-white/80 dark:to-gray-900/40 pointer-events-none"></div>
+        <div className="container mx-auto px-4 z-10 py-10 md:py-20 w-full ">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center ">
             {/* Text Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="order-2 lg:order-1 text-center lg:text-right"
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1 text-center lg:text-right "
             >
-              <span className="inline-block px-4 py-1 bg-nanosoft-primary/10 text-nanosoft-primary rounded-full text-sm font-semibold mb-4">
+              <span className="inline-block px-3 py-1 bg-nanosoft-primary/10 text-nanosoft-primary rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">
                 الرائدة في حلول تقنية المعلومات
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 md:mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-3 md:mb-6 leading-tight">
                 <span className="inline-block relative text-nanosoft-primary">
                   NanoSoft
                 </span>
                 <br />
                 <span className="font-semibold">لحلول الأنظمة الرقمية</span>
               </h1>
-              <p className="text-base md:text-lg lg:text-xl text-gray-700 mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 mb-5 md:mb-8 max-w-md sm:max-w-xl mx-auto lg:mx-0">
                 نقدم لك حلول تقنية متكاملة تساعدك على تطوير أعمالك وزيادة
                 إنتاجيتك مع أحدث التقنيات المبتكرة.
               </p>
               {/* Boutons */}
-              <div className="flex flex-col sm:flex-row gap-4 md:gap-8 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-8 justify-center lg:justify-start w-full">
                 <Link
                   to="/pricing"
-                  className="text-white bg-nanosoft-primary text-lg md:text-xl font-bold px-6 py-3 md:p-4 rounded-lg hover:bg-green-700 transition-colors duration-300"
+                  className="text-white bg-nanosoft-primary text-base sm:text-lg md:text-xl font-bold px-5 py-3 md:p-4 rounded-lg hover:bg-green-700 transition-colors duration-300 w-full sm:w-auto text-center"
                   aria-label="Essai gratuit"
                 >
                   تجربة مجانية
                 </Link>
                 <Link
                   to="/contact"
-                  className="bg-transparent text-nanosoft-accent font-bold text-lg md:text-xl flex items-center justify-center gap-1 transition-transform duration-300 ease-in-out hover:translate-x-1"
+                  className="bg-transparent text-nanosoft-accent font-bold text-base sm:text-lg md:text-xl flex items-center justify-center gap-1 transition-transform duration-300 ease-in-out hover:translate-x-1 w-full sm:w-auto"
                   onMouseEnter={handleHoverIconBtn}
                   onMouseLeave={handleHoverIconBtn}
                   aria-label="احجز عرضًا توضيحيًا"
                 >
                   <span>احجز عرضًا توضيحيًا</span>
                   {changeIcon ? (
-                    <ArrowLeft size={24} className="md:w-7 md:h-7" />
+                    <ArrowLeft size={22} className="md:w-7 md:h-7" />
                   ) : (
-                    <IoIosArrowBack size={24} className="md:w-7 md:h-7" />
+                    <IoIosArrowBack size={22} className="md:w-7 md:h-7" />
                   )}
                 </Link>
               </div>
             </motion.div>
             {/* Image Content */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="order-1 lg:order-2 relative mb-12 lg:mb-0"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2 relative mb-10 lg:mb-0 flex justify-center z-50"
             >
-              <div className="w-full h-full absolute top-4 md:top-8 right-4 md:right-8 bg-nanosoft-primary/10 rounded-2xl md:rounded-3xl"></div>
+              <div className="w-full h-full absolute top-3 sm:top-4 md:top-8 right-3 sm:right-4 md:right-8 bg-nanosoft-primary/10 rounded-2xl md:rounded-3xl"></div>
               <img
                 src={HeroImage}
                 alt="Software Development"
-                className="rounded-2xl md:rounded-3xl w-auto h-auto [230px] md:h-[450px] object-cover shadow-xl md:shadow-2xl "
+                className="rounded-2xl md:rounded-3xl w-full max-w-[320px] sm:max-w-[400px] md:max-w-[450px] h-auto object-cover shadow-xl md:shadow-2xl relative z-10"
                 loading="lazy"
+                width={400}
+                height={450}
+                decoding="async"
+                // fetchPriority="high"
               />
               {/* Quality Badge */}
-              <div className="absolute -bottom-4 md:-bottom-6 -left-4 md:-left-6 w-[230px] md:max-w-[300px]">
-                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl p-3 md:p-4">
-                  <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-                    <div className="w-5 h-5 md:w-10 md:h-10 rounded-full bg-nanosoft-primary/20 flex items-center justify-center">
+              <div className="absolute -bottom-3 sm:-bottom-4 md:-bottom-6 -left-2 sm:-left-4 md:-left-6 w-[160px] sm:w-[200px] md:max-w-[250px] z-50">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl p-2 sm:p-3 md:p-4">
+                  <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-3">
+                    <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-nanosoft-primary/20 flex items-center justify-center">
                       <svg
-                        className="w-4 h-4 md:w-5 md:h-5 text-nanosoft-primary"
+                        className="w-3 h-3 md:w-5 md:h-5 text-nanosoft-primary"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -199,26 +206,27 @@ const Index = () => {
                         />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-sm md:text-base">
+                    <h3 className="font-bold text-xs sm:text-sm md:text-base">
                       جودة عالية
                     </h3>
                   </div>
-                  <p className="text-gray-600 text-xs md:text-sm">
+                  <p className="text-gray-600 text-[10px] sm:text-xs md:text-sm">
                     نحن نقدم حلولًا برمجية عالية الجودة تلبي احتياجاتك وتتجاوز
                     توقعاتك.
                   </p>
                 </div>
               </div>
               {/* Delivery Badge */}
-              <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 w-[230px] md:max-w-[250px] ">
-                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl  p-3 md:p-4">
-                  <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
-                    <div className="w-5 h-5 md:w-10 md:h-10 rounded-full bg-nanosoft-primary/20 flex items-center justify-center">
+              <div className="absolute -top-3 sm:-top-4 md:-top-6 -right-2 sm:-right-4 md:-right-6 w-[160px] sm:w-[200px] md:max-w-[220px] z-50">
+                <div className="bg-white rounded-xl md:rounded-2xl shadow-lg md:shadow-xl p-2 sm:p-3 md:p-4">
+                  <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-3">
+                    <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-nanosoft-primary/20 flex items-center justify-center">
                       <svg
-                        className="w-4 h-4 md:w-5 md:h-5 text-nanosoft-primary"
+                        className="w-3 h-3 md:w-5 md:h-5 text-nanosoft-primary"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -228,11 +236,11 @@ const Index = () => {
                         />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-sm md:text-base">
+                    <h3 className="font-bold text-xs sm:text-sm md:text-base">
                       تسليم سريع
                     </h3>
                   </div>
-                  <p className="text-gray-600 text-xs md:text-sm">
+                  <p className="text-gray-600 text-[10px] sm:text-xs md:text-sm">
                     نلتزم بتسليم مشاريعنا في الوقت المحدد دون المساس بالجودة.
                   </p>
                 </div>
@@ -242,11 +250,12 @@ const Index = () => {
         </div>
 
         {/* Scroll Down Indicator */}
-        <div className="absolute -bottom-2 md:bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-2 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20">
           <a
             href="#services"
             className="flex flex-col items-center text-gray-400 hover:text-nanosoft-primary transition-colors"
             aria-label="تعرف على المزيد"
+            tabIndex={0}
           >
             <span className="text-xs md:text-sm mb-1 md:mb-2">
               تعرف على المزيد
@@ -256,6 +265,7 @@ const Index = () => {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
