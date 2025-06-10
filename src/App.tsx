@@ -1,3 +1,7 @@
+
+
+
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,33 +9,32 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { HelmetProvider } from "react-helmet-async";
-import { lazy, Suspense, memo } from "react"; // Ajout de memo et Suspense
+import { lazy, Suspense } from "react";
 
-// Composants communs mémoïsés
-const Navbar = memo(lazy(() => import("./components/Navbar")));
-const Footer = memo(lazy(() => import("./components/Footer")));
-const ScrollToTop = memo(lazy(() => import("./components/ScrollToTop")));
+const Navbar = lazy(() => import("./components/Navbar"));
+const Footer = lazy(() => import("./components/Footer"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-// Layout commun pour éviter la répétition
-const MainLayout = memo(({ children }: MainLayoutProps) => (
+const MainLayout = ({ children }: MainLayoutProps) => (
   <>
-    <Navbar />
-    <Suspense fallback={<div className="min-h-[80vh]"></div>}>
-      {children}
+    <Suspense fallback={null}>
+      <Navbar />
     </Suspense>
-    <Footer />
+    <main>
+      {children}
+    </main>
+    <Suspense fallback={null}>
+      <Footer />
+    </Suspense>
   </>
-));
+);
 
-// Pages chargées dynamiquement
 const Index = lazy(() => import("./pages/Index"));
 const Pricing = lazy(() => import("./pages/Pricing"));
-// const Blog = lazy(() => import("./pages/Blog"));
-// const BlogPost = lazy(() => import("./pages/BlogPost"));
 const ContactUs = lazy(() => import("./pages/ContactUs"));
 const WebDevService = lazy(() => import("./pages/WebDevService"));
 const AccountingSystem = lazy(() => import("./pages/AccountingSystem"));
@@ -46,15 +49,14 @@ const CloudServices = lazy(() => import("./components/CloudServices"));
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
 const DashboardLayout = lazy(() => import("./components/DashboardLayout"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
-// const BlogAdmin = lazy(() => import("./pages/admin/BlogAdmin"));
 const PriceAdmin = lazy(() => import("./pages/admin/PriceAdmin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Loading =   lazy(()=>import("./components/Loading"))
+const Loading = lazy(() => import("./components/Loading"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false, // Optimisation des requêtes
+      refetchOnWindowFocus: false,
       staleTime: 5 * 60 * 1000,
     },
   },
@@ -67,189 +69,38 @@ const App = () => (
       <Sonner />
       <HelmetProvider>
         <BrowserRouter>
-          <ScrollToTop />
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route
-                path="/cloud-services"
-                element={
-                  <MainLayout>
-                    <CloudServices />
-                  </MainLayout>                  
-                }
-              />
+          <Suspense fallback={<div className="min-h-[80vh] flex items-center justify-center"><Loading /></div>}>
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<MainLayout><Index /></MainLayout>} />
+                <Route path="/pricing" element={<MainLayout><Pricing /></MainLayout>} />
+                <Route path="/contact" element={<MainLayout><ContactUs /></MainLayout>} />
+                <Route path="/software-development" element={<MainLayout><WebDevService /></MainLayout>} />
+                <Route path="/accounting" element={<MainLayout><AccountingSystem /></MainLayout>} />
+                <Route path="/inventory" element={<MainLayout><InventorySystem /></MainLayout>} />
+                <Route path="/hr" element={<MainLayout><HRSystem /></MainLayout>} />
+                <Route path="/injaz" element={<MainLayout><Injaze /></MainLayout>} />
+                <Route path="/erp" element={<MainLayout><ERPSystem /></MainLayout>} />
+                <Route path="/privacy-policy" element={<MainLayout><PrivacyPolicy /></MainLayout>} />
+                <Route path="/terms-of-use" element={<MainLayout><TermsAndConditions /></MainLayout>} />
+                <Route path="/cyber-security" element={<MainLayout><CyberSecurity /></MainLayout>} />
+                <Route path="/cloud-services" element={<MainLayout><CloudServices /></MainLayout>} />
 
-              <Route
-                path="/cyber-security"
-                element={
-                  <MainLayout>
-                    <CyberSecurity />
-                  </MainLayout>
-                }
-              />
+                {/* Admin routes */}
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin" element={<DashboardLayout />}>
+                  <Route index element={<Dashboard />} />
+                  <Route path="prices" element={<PriceAdmin />} />
+                </Route>
 
-              <Route
-                path="/terms-of-use"
-                element={
-                  <MainLayout>
-                    <TermsAndConditions />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/privacy-policy"
-                element={
-                  <MainLayout>
-                    <PrivacyPolicy />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/erp"
-                element={
-                  <MainLayout>
-                    <ERPSystem />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/injaz"
-                element={
-                  <MainLayout>
-                    <Injaze />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/contact"
-                element={
-                  <MainLayout>
-                    <ContactUs />
-                  </MainLayout>
-                }
-              />
-
-              
-
-              <Route
-                path="/hr"
-                element={
-                  <MainLayout>
-                    <HRSystem />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/inventory"
-                element={
-                  <MainLayout>
-                    <InventorySystem />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/accounting"
-                element={
-                  <MainLayout>
-                    <AccountingSystem />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/software-development"
-                element={
-                  <MainLayout>
-                    <WebDevService />
-                  </MainLayout>
-                }
-              />
-
-              {/* Pages publiques avec layout commun */}
-              <Route
-                path="/"
-                element={
-                  <MainLayout>
-                    <Index />
-                  </MainLayout>
-                }
-              />
-
-              <Route
-                path="/pricing"
-                element={
-                  <MainLayout>
-                    <Pricing />
-                  </MainLayout>
-                }
-              />
-
-              {/* Routes dynamiques avec Suspense individuel */}
-              {/* <Route
-                path="/blog"
-                element={
-                  <MainLayout>
-                    <Suspense>
-                      <Blog />
-                    </Suspense>
-                  </MainLayout>
-                }
-              /> */}
-
-              {/* <Route
-                 path="/blog/:id"
-                 element={
-                   <>
-                     <MainLayout>
-                    <Suspense>
-                     <BlogPost />
-                      </Suspense>
-                  </MainLayout>
-                     
-                   </>
-                 }
-               /> */}
-
-              {/* Routes admin séparées sans layout commun */}
-              <Route
-                path="/admin/login"
-                element={
-                  <Suspense fallback={<Loading/>}>
-                    <AdminLogin />
-                  </Suspense>
-                }
-              />
-
-              <Route
-                path="/admin"
-                element={
-                  <Suspense fallback={<Loading/>}>
-                    <DashboardLayout />
-                  </Suspense>
-                }
-              >
-                <Route index element={<Dashboard />} />
-                {/* <Route path="blogs" element={<BlogAdmin />} /> */}
-                <Route path="prices" element={<PriceAdmin />} />
-              </Route>
-
-              {/* Catch-all route */}
-              <Route
-                path="*"
-                element={
-                  <Suspense fallback={null}>
-                    <NotFound />
-                  </Suspense>
-                }
-              />
-            </Routes>
-          </AnimatePresence>
+                {/* 404 */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnimatePresence>
+            <Suspense fallback={null}>
+              <ScrollToTop />
+            </Suspense>
+          </Suspense>
         </BrowserRouter>
       </HelmetProvider>
     </TooltipProvider>
@@ -257,235 +108,3 @@ const App = () => (
 );
 
 export default App;
-
-// import { Toaster } from "@/components/ui/toaster";
-// import { Toaster as Sonner } from "@/components/ui/sonner";
-// import { TooltipProvider } from "@/components/ui/tooltip";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { AnimatePresence } from "framer-motion";
-// import { HelmetProvider } from "react-helmet-async";
-// import { lazy, Suspense, memo } from "react";
-
-// // Composants communs mémoïsés et lazy
-// const Navbar = memo(lazy(() => import("./components/Navbar")));
-// const Footer = memo(lazy(() => import("./components/Footer")));
-// const ScrollToTop = memo(lazy(() => import("./components/ScrollToTop")));
-
-// // Layout commun mémoïsé
-// const MainLayout = memo(({ children }: { children: React.ReactNode }) => (
-//   <>
-//     <Navbar />
-//     <Suspense fallback={<div className="min-h-[80vh]" />}>{children}</Suspense>
-//     <Footer />
-//   </>
-// ));
-
-// // Pages lazy
-// const Index = lazy(() => import("./pages/Index"));
-// const Pricing = lazy(() => import("./pages/Pricing"));
-// const ContactUs = lazy(() => import("./pages/ContactUs"));
-// const WebDevService = lazy(() => import("./pages/WebDevService"));
-// const AccountingSystem = lazy(() => import("./pages/AccountingSystem"));
-// const InventorySystem = lazy(() => import("./pages/InventorySystem"));
-// const HRSystem = lazy(() => import("./pages/HRSystem"));
-// const Injaze = lazy(() => import("./pages/Injaze"));
-// const ERPSystem = lazy(() => import("./pages/ERPSystem"));
-// const PrivacyPolicy = lazy(() => import("./pages/PrivasyPolicy"));
-// const TermsAndConditions = lazy(() => import("./pages/TermesAndConditions"));
-// const CyberSecurity = lazy(() => import("./components/CyberSecurity"));
-// const CloudServices = lazy(() => import("./components/CloudServices"));
-// const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
-// const DashboardLayout = lazy(() => import("./components/DashboardLayout"));
-// const Dashboard = lazy(() => import("./pages/Dashboard"));
-// const PriceAdmin = lazy(() => import("./pages/admin/PriceAdmin"));
-// const NotFound = lazy(() => import("./pages/NotFound"));
-// const Loading = lazy(() => import("./components/Loading"));
-
-// const queryClient = new QueryClient({
-//   defaultOptions: {
-//     queries: {
-//       refetchOnWindowFocus: false,
-//       staleTime: 5 * 60 * 1000,
-//     },
-//   },
-// });
-
-// const App = () => (
-//   <QueryClientProvider client={queryClient}>
-//     <TooltipProvider>
-//       <Toaster />
-//       <Sonner />
-//       <HelmetProvider>
-//         <BrowserRouter>
-//           <ScrollToTop />
-//           <AnimatePresence mode="wait" initial={false}>
-//             <Routes>
-//               <Route
-//                 path="/cloud-services"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <CloudServices />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/cyber-security"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <CyberSecurity />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/terms-of-use"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <TermsAndConditions />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/privacy-policy"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <PrivacyPolicy />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/erp"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <ERPSystem />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/injaz"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <Injaze />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/contact"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <ContactUs />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/hr"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <HRSystem />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/inventory"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <InventorySystem />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/accounting"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <AccountingSystem />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/software-development"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <WebDevService />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <Index />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               <Route
-//                 path="/pricing"
-//                 element={
-//                   <MainLayout>
-//                     <Suspense fallback={<Loading />}>
-//                       <Pricing />
-//                     </Suspense>
-//                   </MainLayout>
-//                 }
-//               />
-//               {/* Admin routes */}
-//               <Route
-//                 path="/admin/login"
-//                 element={
-//                   <Suspense fallback={<Loading />}>
-//                     <AdminLogin />
-//                   </Suspense>
-//                 }
-//               />
-//               <Route
-//                 path="/admin"
-//                 element={
-//                   <Suspense fallback={<Loading />}>
-//                     <DashboardLayout />
-//                   </Suspense>
-//                 }
-//               >
-//                 <Route index element={<Dashboard />} />
-//                 <Route path="prices" element={<PriceAdmin />} />
-//               </Route>
-//               {/* 404 */}
-//               <Route
-//                 path="*"
-//                 element={
-//                   <Suspense fallback={null}>
-//                     <NotFound />
-//                   </Suspense>
-//                 }
-//               />
-//             </Routes>
-//           </AnimatePresence>
-//         </BrowserRouter>
-//       </HelmetProvider>
-//     </TooltipProvider>
-//   </QueryClientProvider>
-// );
-
-// export default App; 

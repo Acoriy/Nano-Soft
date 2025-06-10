@@ -42,11 +42,12 @@ const PriceCard: React.FC<PriceCardProps> = ({ price, onEdit, onDelete, onSelect
     'quarterly': 'كل ثلاثة أشهر'
   };
   const categoryMap: Record<string, string> = {
-    'accounting': 'برنامج محاسبة',
-    'inventory': 'برنامج إدارة المخزون',
-    'hr': 'إدارة شؤون الموظفين',
-    'erp': 'نظام تخطيط موارد المنشأة',
-    'websites': 'تطوير المواقع والتطبيقات'
+    'accounting': 'نظام "حساباتي" للإدارة المالية',
+    'inventory': 'نظام "لوجستي" لإدارة المخزون والمشتريات',
+    'hr': 'نظام "بياناتي" لإدارة الموارد البشرية',
+    'erp': 'نظام تخطيط موارد المؤسسة',
+    'websites': 'تطوير برمجيات',
+    'injaz': 'نظام "إنجاز" لإدارة المشروعات'
   };
 
   const periodText = periodMap[price.period] || price.period;

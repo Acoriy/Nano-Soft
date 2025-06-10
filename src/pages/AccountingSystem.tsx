@@ -151,32 +151,34 @@ const AccountingSystem = () => {
       />
 
       {/* Hero Section with Image */}
-      <div className="flex flex-col md:flex-row items-center gap-10 my-16">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-10 my-10 md:my-16">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex-1 text-right"
+          className="w-full md:w-1/2 text-right mt-8 md:mt-0"
         >
           <Badge className="bg-nanosoft-primary/10 text-nanosoft-primary hover:bg-nanosoft-primary/20 mb-4">
             نظام متكامل
           </Badge>
-          <h1 className="text-4xl font-bold mb-6">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 leading-snug">
             أدر حساباتك المالية بكل احترافية وسهولة
           </h1>
-          <p className="text-gray-600 text-lg mb-8">
+          <p className="text-gray-600 text-base sm:text-lg mb-6 md:mb-8">
             برنامج المحاسبة من نانوسوفت يوفر لك كل ما تحتاجه لإدارة الحسابات
             المالية بكفاءة عالية وبواجهة سهلة الاستخدام مع تقارير متكاملة تساعدك
             على اتخاذ القرارات الصحيحة.
           </p>
-          <div className="flex flex-wrap gap-4 justify-end">
-            <Link to="/contact">
-              <Button className="bg-nanosoft-primary hover:bg-nanosoft-primary/90">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-end items-stretch sm:items-center">
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-nanosoft-primary hover:bg-nanosoft-primary/90">
                 طلب عرض توضيحي
               </Button>
             </Link>
-            <Link to="/pricing">
-              <Button variant="outline">تعرف على المزيد</Button>
+            <Link to="/pricing" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto">
+                تعرف على المزيد
+              </Button>
             </Link>
           </div>
         </motion.div>
@@ -184,12 +186,12 @@ const AccountingSystem = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex-1"
+          className="w-full md:w-1/2 flex justify-center"
         >
           <img
             src={HeroAcounting}
             alt="نظام المحاسبة"
-            className="rounded-lg shadow-2xl w-full object-cover h-[400px]"
+            className="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-md md:max-w-full object-cover h-48 sm:h-72 md:h-[400px]"
           />
         </motion.div>
       </div>

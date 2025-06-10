@@ -100,7 +100,7 @@ const CyberSecurity = () => {
   
 
   return (
-    <main className="pt-20">
+    <main className="pt-20  overflow-hidden">
       {/* Open Graph */}
       <SEO
         title="نانو سوفت - خدمات الأمن السيبراني"
@@ -123,14 +123,14 @@ const CyberSecurity = () => {
         ></div>
         <div className="container mx-auto px-4 pt-16 pb-8 relative z-10">
           <h1
-            id="cybersecurity-hero"
-            className="text-4xl md:text-5xl font-bold text-white text-center mb-4"
+        id="cybersecurity-hero"
+        className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-4"
           >
-            الأمن السيبراني
+        الأمن السيبراني
           </h1>
-          <p className="text-xl text-white/80 text-center max-w-3xl mx-auto">
-            حلول متكاملة لحماية بياناتك ومنشأتك من المخاطر الإلكترونية et renforcer
-            l’<strong>sécurité numérique</strong>.
+          <p className="text-base sm:text-lg md:text-xl text-white/80 text-center max-w-3xl mx-auto">
+        حلول متكاملة لحماية بياناتك ومنشأتك من المخاطر الإلكترونية et renforcer
+        l’<strong>sécurité numérique</strong>.
           </p>
         </div>
 
@@ -138,74 +138,83 @@ const CyberSecurity = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="container mx-auto px-4 py-12 md:py-20 relative z-10"
+          className="container mx-auto px-4 py-8 sm:py-12 md:py-20 relative z-10"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="w-full md:w-1/2 text-white">
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-3xl md:text-4xl font-bold mb-6"
-              >
-                حماية متكاملة لأعمالك الرقمية
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="text-lg mb-8 text-gray-100"
-              >
-                في عصر التحول الرقمي، يعتبر الأمن السيبراني أحد أهم التحديات التي
-                تواجه الشركات والمؤسسات. نقدم حلولاً شاملة لحماية بنيتك التحتية وبياناتك
-                من الهجمات الإلكترونية المتطورة.
-              </motion.p>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-white md:text-xl text-nanosoft-primary hover:bg-gray-200"
-                    aria-label="تواصل معنا"
-                  >
-                    تواصل معنا
-                  </Button>
-                </Link>
-                <Link to="/pricing">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white md:text-xl text-white bg-transparent hover:bg-white/10"
-                    aria-label="اكتشف المزيد"
-                  >
-                    اكتشف المزيد
-                  </Button>
-                </Link>
-              </motion.div>
+          <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+        <div className="w-full md:w-1/2 text-white mt-8 md:mt-0">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center md:text-right"
+          >
+            حماية متكاملة لأعمالك الرقمية
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-base sm:text-lg md:text-xl mb-8 text-gray-100 text-center md:text-right"
+          >
+            في عصر التحول الرقمي، يعتبر الأمن السيبراني أحد أهم التحديات التي
+            تواجه الشركات والمؤسسات. نقدم حلولاً شاملة لحماية بنيتك التحتية وبياناتك
+            من الهجمات الإلكترونية المتطورة.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center md:justify-start"
+          >
+            <Link to="/contact" className="flex-1">
+          <Button
+            size="lg"
+            className="w-full bg-white md:text-xl text-nanosoft-primary hover:bg-gray-200"
+            aria-label="تواصل معنا"
+          >
+            تواصل معنا
+          </Button>
+            </Link>
+            <Link to="/pricing" className="flex-1">
+          <Button
+            size="lg"
+            variant="outline"
+            className="w-full border-white md:text-xl text-white bg-transparent hover:bg-white/10"
+            aria-label="اكتشف المزيد"
+          >
+            اكتشف المزيد
+          </Button>
+            </Link>
+          </motion.div>
+          {/* Icons for mobile/tablet */}
+          <div className="flex justify-center md:justify-start gap-4 mt-8 md:mt-12">
+            <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-white/80" aria-label="حماية" />
+            <Lock className="w-8 h-8 sm:w-10 sm:h-10 text-white/80" aria-label="قفل" />
+            <AlertTriangle className="w-8 h-8 sm:w-10 sm:h-10 text-white/80" aria-label="تنبيه" />
+            <Code className="w-8 h-8 sm:w-10 sm:h-10 text-white/80" aria-label="كود" />
+            <Server className="w-8 h-8 sm:w-10 sm:h-10 text-white/80" aria-label="خادم" />
+            <Eye className="w-8 h-8 sm:w-10 sm:h-10 text-white/80" aria-label="مراقبة" />
+          </div>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="w-full md:w-1/2 flex justify-center"
+        >
+          <div className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96">
+            <div className="absolute inset-0 rounded-full bg-nanosoft-primary/20 animate-pulse" aria-hidden="true"></div>
+            <div className="absolute inset-6 rounded-full bg-nanosoft-primary/30 animate-pulse [animation-delay:500ms]" aria-hidden="true"></div>
+            <div className="absolute inset-12 rounded-full bg-nanosoft-primary/40 animate-pulse [animation-delay:1000ms]" aria-hidden="true"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+          <Shield
+            className="w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 text-white"
+            strokeWidth={1.5}
+            aria-hidden="true"
+          />
             </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="w-full md:w-1/2 flex justify-center"
-            >
-              <div className="relative w-72 h-72 md:w-96 md:h-96">
-                <div className="absolute inset-0 rounded-full bg-nanosoft-primary/20 animate-pulse" aria-hidden="true"></div>
-                <div className="absolute inset-6 rounded-full bg-nanosoft-primary/30 animate-pulse [animation-delay:500ms]" aria-hidden="true"></div>
-                <div className="absolute inset-12 rounded-full bg-nanosoft-primary/40 animate-pulse [animation-delay:1000ms]" aria-hidden="true"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Shield
-                    className="w-24 h-24 md:w-32 md:h-32 text-white"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
-                </div>
-              </div>
-            </motion.div>
+          </div>
+        </motion.div>
           </div>
         </motion.div>
       </section>

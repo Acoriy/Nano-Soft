@@ -195,58 +195,53 @@ const WebDevService = () => {
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 md:px-6 py-8 md:py-16">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12">
           <motion.div
-            className="flex-1 text-right order-2 md:order-1"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+        className="w-full md:w-1/2 text-right order-2 md:order-1"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 md:mb-6 flex flex-col gap-5 md:gap-8 ">
-              <p>
-                {" "}
-                نحول <span className="text-nanosoft-primary">أفكارك</span> إلى
-                تجارب{" "}
-              </p>
-              <p> رقمية استثنائية</p>
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
-              فريق من المطورين والمصممين المحترفين لتحويل رؤيتك إلى واقع رقمي
-              يتجاوز توقعاتك
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-end">
-              <Link to="/contact">
-                <Button
-                  onClick={() => navigate("/contact")}
-                  className="bg-nanosoft-primary hover:bg-nanosoft-secondary text-white rounded-full px-6 md:px-8 py-3 md:py-6 text-base md:text-lg w-full sm:w-auto"
-                >
-                  احصل على استشارة مجانية
-                </Button>
-              </Link>
-
-              <Link to="/pricing">
-                <Button
-                  variant="outline"
-                  onClick={() => navigate("/pricing")}
-                  className="border-nanosoft-primary text-nanosoft-primary hover:text-white hover:bg-nanosoft-primary rounded-full px-6 md:px-8 py-3 md:py-6 text-base md:text-lg w-full sm:w-auto"
-                >
-                  عرض الباقات والأسعار
-                </Button>
-              </Link>
-            </div>
+        <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 md:mb-6 flex flex-col gap-3 md:gap-8">
+          <span>
+            نحول <span className="text-nanosoft-primary">أفكارك</span> إلى تجارب
+          </span>
+          <span>رقمية استثنائية</span>
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 md:mb-8">
+          فريق من المطورين والمصممين المحترفين لتحويل رؤيتك إلى واقع رقمي يتجاوز توقعاتك
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-end w-full">
+          <Link to="/contact" className="w-full sm:w-auto">
+            <Button
+          onClick={() => navigate("/contact")}
+          className="w-full sm:w-auto bg-nanosoft-primary hover:bg-nanosoft-secondary text-white rounded-full px-6 md:px-8 py-3 md:py-6 text-base md:text-lg"
+            >
+          احصل على استشارة مجانية
+            </Button>
+          </Link>
+          <Link to="/pricing" className="w-full sm:w-auto">
+            <Button
+          variant="outline"
+          onClick={() => navigate("/pricing")}
+          className="w-full sm:w-auto border-nanosoft-primary text-nanosoft-primary hover:text-white hover:bg-nanosoft-primary rounded-full px-6 md:px-8 py-3 md:py-6 text-base md:text-lg"
+            >
+          عرض الباقات والأسعار
+            </Button>
+          </Link>
+        </div>
           </motion.div>
           <motion.div
-            className="flex-1 order-1 md:order-2 w-full md:w-auto"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+        className="w-full md:w-1/2 order-1 md:order-2 flex justify-center"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <img
-              src={HeroDev}
-              alt="Web Development"
-              className="w-full h-auto rounded-xl shadow-2xl object-cover max-h-[500px]"
-            />
+        <img
+          src={HeroDev}
+          alt="Web Development"
+          className="w-full max-w-xs sm:max-w-md md:max-w-full h-auto rounded-xl shadow-2xl object-cover max-h-[350px] sm:max-h-[400px] md:max-h-[500px]"
+        />
           </motion.div>
         </div>
       </section>

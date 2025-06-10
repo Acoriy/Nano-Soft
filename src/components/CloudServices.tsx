@@ -48,77 +48,78 @@ const CloudServices = () => {
     },
   };
 
-  // Schema.org : 
+  // Schema.org :
   const cloudSchema = {
     "@graph": [
       {
         "@type": "Service",
-        "serviceType": "Cloud Computing Services",
-        "name": "خدمات الحوسبة السحابية - نانو سوفت",
-        "description": "حلول سحابية متكاملة تجمع بين المرونة والأمان والأداء العالي لتلبية احتياجات الأعمال",
-        "provider": {
+        serviceType: "Cloud Computing Services",
+        name: "خدمات الحوسبة السحابية - نانو سوفت",
+        description:
+          "حلول سحابية متكاملة تجمع بين المرونة والأمان والأداء العالي لتلبية احتياجات الأعمال",
+        provider: {
           "@type": "Organization",
-          "name": "نانو سوفت",
+          name: "نانو سوفت",
           // "logo": `${process.env.VITE_SITE_URL}${ImageOg}`
         },
-        "offers": [
+        offers: [
           {
             "@type": "Offer",
-            "name": "البنية التحتية كخدمة (IaaS)",
-            "description": "موارد حوسبة افتراضية عالية الأداء مع مرونة كاملة",
-            "priceSpecification": {
+            name: "البنية التحتية كخدمة (IaaS)",
+            description: "موارد حوسبة افتراضية عالية الأداء مع مرونة كاملة",
+            priceSpecification: {
               "@type": "UnitPriceSpecification",
-              "priceCurrency": "LYD",
-              "price": "500-5000"
-            }
+              priceCurrency: "LYD",
+              price: "500-5000",
+            },
           },
           {
             "@type": "Offer",
-            "name": "المنصة كخدمة (PaaS)",
-            "description": "بيئة تطوير وتشغيل متكاملة للتطبيقات",
-            "priceSpecification": {
+            name: "المنصة كخدمة (PaaS)",
+            description: "بيئة تطوير وتشغيل متكاملة للتطبيقات",
+            priceSpecification: {
               "@type": "UnitPriceSpecification",
-              "priceCurrency": "LYD",
-              "price": "1000-10000"
-            }
-          }
+              priceCurrency: "LYD",
+              price: "1000-10000",
+            },
+          },
         ],
         // "image": `${process.env.VITE_SITE_URL}${ImageOg}`
       },
       {
         "@type": "Organization",
-        "name": "نانو سوفت",
-        "url": "https://nanosoft.ly",
+        name: "نانو سوفت",
+        url: "https://nanosoft.ly",
         // "logo": `${process.env.VITE_SITE_URL}${ImageOg}`,
-        "sameAs": [
+        sameAs: [
           "https://facebook.com/nanosoft",
-          "https://linkedin.com/company/nanosoft"
+          "https://linkedin.com/company/nanosoft",
         ],
-        "areaServed": {
+        areaServed: {
           "@type": "Country",
-          "name": "Libya"
+          name: "Libya",
         },
-        "knowsLanguage": "ar",
-        "foundingDate": "2020"
+        knowsLanguage: "ar",
+        foundingDate: "2020",
       },
       {
         "@type": "WebPage",
-        "name": "خدمات السحابة - نانو سوفت",
-        "description": "حلول سحابية متكاملة لإدارة البنية التحتية والتطبيقات",
-        "mainContentOfPage": {
+        name: "خدمات السحابة - نانو سوفت",
+        description: "حلول سحابية متكاملة لإدارة البنية التحتية والتطبيقات",
+        mainContentOfPage: {
           "@type": "WebPageElement",
-          "cssSelector": ".container"
+          cssSelector: ".container",
         },
-        "primaryImageOfPage": {
+        primaryImageOfPage: {
           "@type": "ImageObject",
           // "url": `${process.env.VITE_SITE_URL}${ImageOg}`
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 overflow-hidden">
       {/* Open Graph */}
       <SEO
         title="نانو سوفت - خدمات الحوسبة السحابية"
@@ -132,16 +133,16 @@ const CloudServices = () => {
       <SchemaMarkup schema={cloudSchema} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-x-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-custom-green-1 via-custom-green-2 to-custom-green-4 opacity-90"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTIgMmg1NnY1NkgyVjJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
-        <div className="container mx-auto px-4 pt-20 pb-16 relative z-10">
-          <div className="text-center mb-12">
+        <div className="container mx-auto px-4 pt-16 pb-10 md:pt-20 md:pb-16 relative z-10">
+          <div className="text-center mb-8 md:mb-12">
             <motion.h1
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 md:mb-6"
             >
               خدمات الحوسبة السحابية
             </motion.h1>
@@ -149,7 +150,7 @@ const CloudServices = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xl text-white/90 max-w-3xl mx-auto"
+              className="text-base xs:text-lg sm:text-xl text-white/90 max-w-xl md:max-w-3xl mx-auto"
             >
               حلول سحابية متكاملة تجمع بين المرونة والأمان والأداء العالي لتلبية
               احتياجات أعمالك
@@ -163,39 +164,42 @@ const CloudServices = () => {
             className="flex justify-center"
           >
             <div className="relative">
-              <div className="w-72 h-72 md:w-96 md:h-96 relative">
+              <div className="w-48 h-48 xs:w-56 xs:h-56 sm:w-72 sm:h-72 md:w-96 md:h-96 relative mx-auto">
                 <div className="absolute inset-0 rounded-full bg-white/10 animate-pulse"></div>
                 <div className="absolute inset-4 rounded-full bg-white/20 animate-pulse [animation-delay:400ms]"></div>
                 <div className="absolute inset-10 rounded-full bg-white/20 animate-pulse [animation-delay:800ms]"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Cloud className="w-32 h-32 text-white" strokeWidth={1} />
+                  <Cloud
+                    className="w-16 h-16 xs:w-20 xs:h-20 sm:w-32 sm:h-32 text-white"
+                    strokeWidth={1}
+                  />
                 </div>
 
                 <motion.div
                   initial={{ opacity: 0, x: -40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.8, duration: 0.7 }}
-                  className="absolute -right-8 -top-8 p-4 bg-white/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
+                  className="absolute -right-4 -top-4 xs:-right-6 xs:-top-6 sm:-right-8 sm:-top-8 p-2 xs:p-3 sm:p-4 bg-white/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
                 >
-                  <Database className="w-8 h-8 text-white" />
+                  <Database className="w-5 h-5 xs:w-6 xs:h-6 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1, duration: 0.7 }}
-                  className="absolute -left-8 top-12 p-4 bg-white/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
+                  className="absolute -left-4 top-6 xs:-left-6 xs:top-8 sm:-left-8 sm:top-12 p-2 xs:p-3 sm:p-4 bg-white/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
                 >
-                  <Server className="w-8 h-8 text-white" />
+                  <Server className="w-5 h-5 xs:w-6 xs:h-6 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2, duration: 0.7 }}
-                  className="absolute right-0 -bottom-4 p-4 bg-white/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
+                  className="absolute right-0 -bottom-2 xs:-bottom-3 sm:-bottom-4 p-2 xs:p-3 sm:p-4 bg-white/20 backdrop-blur-lg rounded-xl flex items-center justify-center"
                 >
-                  <Shield className="w-8 h-8 text-white" />
+                  <Shield className="w-5 h-5 xs:w-6 xs:h-6 sm:w-8 sm:h-8 text-white" />
                 </motion.div>
               </div>
             </div>
@@ -205,14 +209,13 @@ const CloudServices = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.4 }}
-            className="flex justify-center mt-6 md:mt-10"
+            className="flex justify-center mt-4 xs:mt-6 sm:mt-8 md:mt-10"
           >
-            <div className="flex flex-wrap gap-4 justify-center md:mb-5">
-              
+            <div className="flex flex-wrap gap-3 xs:gap-4 justify-center md:mb-5">
               <Link to="/pricing">
                 <Button
                   size="lg"
-                  className="bg-white md:text-xl text-nanosoft-primary hover:bg-gray-200"
+                  className="bg-white text-base xs:text-lg md:text-xl text-nanosoft-primary hover:bg-gray-200"
                 >
                   استكشاف الخدمات
                 </Button>
@@ -222,7 +225,7 @@ const CloudServices = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white md:text-xl text-white bg-transparent hover:bg-white/10"
+                  className="border-white text-base xs:text-lg md:text-xl text-white bg-transparent hover:bg-white/10"
                 >
                   اكتشف المزيد
                 </Button>
@@ -236,7 +239,8 @@ const CloudServices = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 140"
-            className="w-full"
+            className="w-full h-10 xs:h-14 sm:h-20 md:h-28"
+            preserveAspectRatio="none"
           >
             <path
               fill="#ffffff"
@@ -523,7 +527,6 @@ const CloudServices = () => {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              
               <Link to="/contact">
                 <Button
                   size="lg"
@@ -546,7 +549,10 @@ const CloudServices = () => {
 
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { value: "99.9%", label: "وقت التشغيل مع ضمان اتفاقية مستوى الخدمة" },
+                {
+                  value: "99.9%",
+                  label: "وقت التشغيل مع ضمان اتفاقية مستوى الخدمة",
+                },
                 { value: "24/7", label: "دعم فني متخصص على مدار الساعة" },
                 { value: "30+", label: "نموذج جاهز للنشر السريع" },
               ].map((stat, idx) => (

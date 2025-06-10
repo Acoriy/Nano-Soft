@@ -157,46 +157,45 @@ const HRSystem = () => {
       />
 
       {/* Hero Section with Image */}
-      <div className="flex flex-col md:flex-row items-center gap-10 my-16">
+      <div className="flex flex-col-reverse md:flex-row items-center gap-10 my-16">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex-1 text-right"
+          className="w-full md:w-1/2 text-right mt-8 md:mt-0"
         >
           <Badge className="bg-nanosoft-primary/10 text-nanosoft-primary hover:bg-nanosoft-primary/20 mb-4">
-            نظام شامل
+        نظام شامل
           </Badge>
-          <h1 className="text-4xl font-bold mb-6">
-            إدارة الموارد البشرية بكفاءة واحترافية
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight">
+        إدارة الموارد البشرية بكفاءة واحترافية
           </h1>
-          <p className="text-gray-600 text-lg mb-8">
-            نظام "بياناتي" لإدارة الموارد البشرية من نانوسوفت يوفر لك حلاً متكاملاً لإدارة
-            جميع جوانب الموارد البشرية من تسجيل البيانات وإدارة الإجازات إلى
-            احتساب الرواتب وتقييم الأداء.
+          <p className="text-gray-600 text-base sm:text-lg mb-8">
+        نظام "بياناتي" لإدارة الموارد البشرية من نانوسوفت يوفر لك حلاً متكاملاً لإدارة
+        جميع جوانب الموارد البشرية من تسجيل البيانات وإدارة الإجازات إلى
+        احتساب الرواتب وتقييم الأداء.
           </p>
-          <div className="flex flex-wrap gap-4 justify-end">
-            <Link to="/contact">
-              <Button className="bg-nanosoft-primary hover:bg-nanosoft-primary/90">
-                طلب عرض توضيحي
-              </Button>
-            </Link>
-
-            <Link to="/pricing">
-              <Button variant="outline">تعرف على المزيد</Button>
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-end">
+        <Link to="/contact">
+          <Button className="bg-nanosoft-primary hover:bg-nanosoft-primary/90 w-full sm:w-auto">
+            طلب عرض توضيحي
+          </Button>
+        </Link>
+        <Link to="/pricing">
+          <Button variant="outline" className="w-full sm:w-auto">تعرف على المزيد</Button>
+        </Link>
           </div>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex-1"
+          className="w-full md:w-1/2 flex justify-center"
         >
           <img
-            src={HR1}
-            alt="نظام إدارة الموارد البشرية"
-            className="rounded-lg shadow-2xl w-full object-cover h-[400px]"
+        src={HR1}
+        alt="نظام إدارة الموارد البشرية"
+        className="rounded-lg shadow-2xl w-full max-w-xs sm:max-w-md md:max-w-full object-cover h-56 sm:h-72 md:h-[400px]"
           />
         </motion.div>
       </div>

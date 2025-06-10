@@ -12,5 +12,4 @@ Allow: /
 
 User-agent: *
 Allow: /
-Sitemap: https://https://nanosoft.ly/sitemap.xml
-
+Sitemap: https://nanosoft.ly/sitemap.xml

@@ -277,7 +277,7 @@ const Navbar: React.FC = () => {
             {/* Toggle mobile menu */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-r from-nanosoft-primary to-nanosoft-secondary text-white shadow-md transition-all duration-300 hover:shadow-lg"
+              className="md:hidden flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-r from-nanosoft-primary to-nanosoft-secondary text-white shadow-md transition-all duration-300 hover:shadow-lg ml-2"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
@@ -297,24 +297,42 @@ const Navbar: React.FC = () => {
             >
               <div className="container mx-auto px-4 py-6 bg-white/95">
                 <div className="space-y-1 border-b border-gray-100 pb-4 mb-4">
-                  {navLinks.map((link) => (
-                    <Link
+                    {navLinks.map((link) =>
+                    link.name === "المدونة" ? (
+                      <a
+                      key={link.path}
+                      href="https://nanosoft.ly/blog"
+                      className={cn(
+                        "flex items-center justify-between py-3 px-4 rounded-xl text-lg font-medium transition-all",
+                        location.pathname === link.path
+                        ? "text-white bg-gradient-to-r from-nanosoft-primary to-nanosoft-secondary shadow-md"
+                        : "text-gray-800 hover:bg-gray-50"
+                      )}
+                      onClick={closeMobileMenu}
+                      
+                      rel="noopener noreferrer"
+                      >
+                      <span>{link.name}</span>
+                      </a>
+                    ) : (
+                      <Link
                       key={link.path}
                       to={link.path}
                       className={cn(
                         "flex items-center justify-between py-3 px-4 rounded-xl text-lg font-medium transition-all",
                         location.pathname === link.path
-                          ? "text-white bg-gradient-to-r from-nanosoft-primary to-nanosoft-secondary shadow-md"
-                          : "text-gray-800 hover:bg-gray-50"
+                        ? "text-white bg-gradient-to-r from-nanosoft-primary to-nanosoft-secondary shadow-md"
+                        : "text-gray-800 hover:bg-gray-50"
                       )}
                       onClick={closeMobileMenu}
                       aria-current={
                         location.pathname === link.path ? "page" : undefined
                       }
-                    >
+                      >
                       <span>{link.name}</span>
-                    </Link>
-                  ))}
+                      </Link>
+                    )
+                    )}
                 </div>
 
                 <div className="mb-6">
