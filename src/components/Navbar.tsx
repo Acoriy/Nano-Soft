@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: "الرئيسية", path: "/" },
     { name: "الأسعار", path: "/pricing" },
-    // { name: "المدونة", path: "/blog" },
+    // { name: "المتجر", path: "https://nanosoft-ly.odoo.com/shop" },
     { name: "المدونة", path: "https://nanosoft.ly/blog", external: true },
     { name: "اتصل بنا", path: "/contact" },
   ];
@@ -204,6 +204,17 @@ const Navbar: React.FC = () => {
                 >
                   الأسعار
                 </Link>
+                 <Link
+                  to="https://nanosoft-ly.odoo.com/shop"
+                  className={cn(
+                    "text-base font-medium transition-colors duration-200 hover:text-nanosoft-primary",
+                    location.pathname === "https://nanosoft-ly.odoo.com/shop"
+                      ? "text-nanosoft-primary"
+                      : "text-gray-700"
+                  )}
+                >
+                  المتجر
+                </Link>
               </div>
 
               <div className="flex items-center space-x-8">
@@ -220,7 +231,7 @@ const Navbar: React.FC = () => {
                     {link.name}
                   </Link>
                 ))} */}
-                {desktopNavLinks.map((link) =>
+                {desktopNavLinks.map((link) =>       
                   link.external ? (
                     <a
                       key={link.path}
@@ -331,8 +342,25 @@ const Navbar: React.FC = () => {
                       >
                       <span>{link.name}</span>
                       </Link>
+                      
                     )
                     )}
+                      <Link
+                      key="المتجر"
+                      to="https://nanosoft-ly.odoo.com/shop"
+                      className={cn(
+                        "flex items-center justify-between py-3 px-4 rounded-xl text-lg font-medium transition-all",
+                        location.pathname === "المتجر"
+                        ? "text-white bg-gradient-to-r from-nanosoft-primary to-nanosoft-secondary shadow-md"
+                        : "text-gray-800 hover:bg-gray-50"
+                      )}
+                      onClick={closeMobileMenu}
+                      aria-current={
+                        location.pathname === "المتجر" ? "page" : undefined
+                      }
+                      >
+                      <span>المتجر</span>
+                      </Link>
                 </div>
 
                 <div className="mb-6">

@@ -1,0 +1,13 @@
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # استثناء ملفات XML من إعادة التوجيه
+  RewriteRule ^sitemap\.xml$ - [L]
+  RewriteRule ^sitemap-.*\.xml$ - [L]
+  
+  # إعادة توجيه باقي الطلبات إلى index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

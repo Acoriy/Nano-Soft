@@ -84,7 +84,7 @@ const Pricing = () => {
   };
 
   const handleSelectPlan = (planId: string) => {
-    window.open("http://crm.nanosoft.ly/", "_blank");
+    window.open("https://nanosoft-ly.odoo.com/shop", "_blank");
   };
 
   const containerVariants = {

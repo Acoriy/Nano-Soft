@@ -47,7 +47,8 @@ const PriceCard: React.FC<PriceCardProps> = ({ price, onEdit, onDelete, onSelect
     'hr': 'نظام "بياناتي" لإدارة الموارد البشرية',
     'erp': 'نظام تخطيط موارد المؤسسة',
     'websites': 'تطوير برمجيات',
-    'injaz': 'نظام "إنجاز" لإدارة المشروعات'
+    'injaz': 'نظام "إنجاز" لإدارة المشروعات',
+    'software-development' : 'تطوير برمجيات'
   };
 
   const periodText = periodMap[price.period] || price.period;
@@ -168,9 +169,9 @@ const PriceCard: React.FC<PriceCardProps> = ({ price, onEdit, onDelete, onSelect
             <Button 
               className="w-full bg-nanosoft-primary hover:bg-nanosoft-primary/90 transition-all duration-300 group"
               onClick={() => onSelectPlan && price.id && onSelectPlan(price.id)}
-              aria-label="اختيار هذه الباقة"
+              aria-label="الانتقال إلى المتجر"
             >
-              <span>اختيار هذه الباقة</span>
+              <span>الانتقال إلى المتجر</span>
               <motion.div
                 initial={{ x: 0 }}
                 animate={{ x: [0, 5, 0] }}

@@ -26,5 +26,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "server.js", "generate-sitemap-script.js"]
+  "include": ["src", "server.js", "generate-sitemap.js"]
 }
